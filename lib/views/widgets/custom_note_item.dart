@@ -7,7 +7,9 @@ class NoteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 1.h,),
+      margin: EdgeInsets.symmetric(
+        vertical: 1.h,
+      ),
       padding: EdgeInsets.only(
         top: 3.h,
         bottom: 3.h,
@@ -29,7 +31,9 @@ class NoteItem extends StatelessWidget {
               ),
             ),
             subtitle: Padding(
-              padding: EdgeInsets.symmetric(vertical: 2.h,),
+              padding: EdgeInsets.symmetric(
+                vertical: 2.h,
+              ),
               child: Text(
                 'build your career with this course',
                 style: TextStyle(
@@ -48,7 +52,9 @@ class NoteItem extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(right: 6.w,),
+            padding: EdgeInsets.only(
+              right: 6.w,
+            ),
             child: Text(
               'November 10, 2022',
               style: TextStyle(
