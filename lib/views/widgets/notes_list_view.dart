@@ -12,8 +12,8 @@ class NotesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: 2.h,
+      padding: EdgeInsets.only(
+        top: 2.h,
       ),
       child: ListView.builder(
         padding: EdgeInsets.zero,

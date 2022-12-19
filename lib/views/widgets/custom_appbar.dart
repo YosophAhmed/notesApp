@@ -7,11 +7,14 @@ import 'custom_icon.dart';
 class CustomAppBar extends StatelessWidget {
   final String title;
   final IconData icon;
+  final Function() onTap;
+
 
   const CustomAppBar({
     Key? key,
     required this.title,
     required this.icon,
+    required this.onTap,
   }) : super(
           key: key,
         );
@@ -29,6 +32,7 @@ class CustomAppBar extends StatelessWidget {
         const Spacer(),
         CustomIcon(
           icon: icon,
+          onTap: onTap,
         ),
       ],
     );
