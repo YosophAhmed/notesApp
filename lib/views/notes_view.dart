@@ -4,7 +4,11 @@ import 'package:sizer/sizer.dart';
 import 'package:notes/views/widgets/notes_view_body.dart';
 
 class NotesView extends StatelessWidget {
-  const NotesView({Key? key}) : super(key: key);
+  const NotesView({
+    Key? key,
+  }) : super(
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +17,14 @@ class NotesView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
-              context: context,
-              builder: (context) {
-                return const AddNoteBottomSheet();
-              },
+            context: context,
+            builder: (context) {
+              return const AddNoteBottomSheet();
+            },
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16.sp,),
+              borderRadius: BorderRadius.circular(
+                16.sp,
+              ),
             ),
           );
         },
@@ -30,5 +36,3 @@ class NotesView extends StatelessWidget {
     );
   }
 }
-
-

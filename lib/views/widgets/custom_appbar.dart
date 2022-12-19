@@ -4,7 +4,7 @@ import 'package:sizer/sizer.dart';
 import 'custom_search_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({Key? key}) : super(key: key);
+  const CustomAppBar({Key? key,}) : super(key: key,);
 
   @override
   Widget build(BuildContext context) {
