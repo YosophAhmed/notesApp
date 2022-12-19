@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-class CustomSearchIcon extends StatelessWidget {
-  const CustomSearchIcon({
+class CustomIcon extends StatelessWidget {
+  final IconData icon;
+
+  const CustomIcon({
     Key? key,
+    required this.icon,
   }) : super(
           key: key,
         );
@@ -19,7 +22,7 @@ class CustomSearchIcon extends StatelessWidget {
       ),
       child: Center(
         child: Icon(
-          Icons.search,
+          icon,
           size: 28.sp,
         ),
       ),
