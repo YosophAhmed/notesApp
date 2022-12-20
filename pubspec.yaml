@@ -39,6 +39,7 @@ dependencies:
   sizer:
   hive:
   hive_flutter:
+  flutter_bloc:
 
 dev_dependencies:
   flutter_test:

@@ -17,7 +17,7 @@ class AddNoteBottomSheet extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         horizontal: 3.5.w,
       ),
-      child: AddNoteForm(),
+      child: const AddNoteForm(),
     );
   }
 }
