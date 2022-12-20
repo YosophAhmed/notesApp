@@ -67,7 +67,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
           CustomButton(
             label: 'Add',
-            height: 7.h,
+            height: 8.h,
             onTap: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
