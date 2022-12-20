@@ -21,10 +21,12 @@ class NotesView extends StatelessWidget {
             builder: (context) {
               return const AddNoteBottomSheet();
             },
+
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
-                16.sp,
+                8.sp,
               ),
+
             ),
           );
         },

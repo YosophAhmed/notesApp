@@ -4,18 +4,28 @@ import 'package:sizer/sizer.dart';
 import '../../constants/colors.dart';
 
 class CustomTextField extends StatelessWidget {
+  final String hintText;
+  final int maxLines;
+  final void Function(String?)? onSaved;
+
   const CustomTextField({
     Key? key,
     required this.hintText,
+    this.onSaved,
     this.maxLines = 1,
   }) : super(key: key);
 
-  final String hintText;
-  final int maxLines;
-
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      onSaved: onSaved,
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'Field is required';
+        } else {
+          return null;
+        }
+      },
       decoration: InputDecoration(
         border: buildBorder(),
         enabledBorder: buildBorder(),
