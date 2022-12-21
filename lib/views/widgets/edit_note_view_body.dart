@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes/models/note_model.dart';
 import 'package:notes/views/widgets/custom_appbar.dart';
 import 'package:notes/views/widgets/custom_text_field.dart';
 import 'package:sizer/sizer.dart';
 
-class EditNoteViewBody extends StatelessWidget {
-  const EditNoteViewBody({Key? key}) : super(key: key);
+class EditNoteViewBody extends StatefulWidget {
+  final NoteModel note;
+
+  const EditNoteViewBody({
+    Key? key,
+    required this.note,
+  }) : super(key: key);
+
+  @override
+  State<EditNoteViewBody> createState() => _EditNoteViewBodyState();
+}
+
+class _EditNoteViewBodyState extends State<EditNoteViewBody> {
+
+  String? title , subTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -20,20 +36,32 @@ class EditNoteViewBody extends StatelessWidget {
           CustomAppBar(
             title: 'Edit Note',
             icon: Icons.check,
-            onTap: (){},
+            onTap: () {
+                widget.note.title = title ?? widget.note.title;
+                widget.note.subTitle = subTitle ?? widget.note.subTitle;
+                widget.note.save();
+                BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+                Navigator.pop(context);
+            },
           ),
           SizedBox(
             height: 8.h,
           ),
-          const CustomTextField(
-            hintText: 'Title',
+          CustomTextField(
+            hintText: widget.note.title,
+            onChanged: (value){
+              title = value;
+            },
           ),
           SizedBox(
             height: 4.h,
           ),
-          const CustomTextField(
-            hintText: 'Content',
+          CustomTextField(
+            hintText: widget.note.subTitle,
             maxLines: 5,
+            onChanged: (value) {
+              subTitle = value;
+            },
           ),
         ],
       ),

@@ -7,11 +7,13 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final int maxLines;
   final void Function(String?)? onSaved;
+  final void Function(String?)? onChanged;
 
   const CustomTextField({
     Key? key,
     required this.hintText,
     this.onSaved,
+    this.onChanged,
     this.maxLines = 1,
   }) : super(key: key);
 
@@ -19,6 +21,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: onSaved,
+      onChanged: onChanged,
       validator: (value) {
         if (value?.isEmpty ?? true) {
           return 'Field is required';
