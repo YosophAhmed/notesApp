@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/views/notes_view.dart';
 import 'package:sizer/sizer.dart';
 
+import 'cubits/notes_cubit/notes_cubit.dart';
+
 class NotesApp extends StatelessWidget {
-  const NotesApp({
-    Key? key,
-  }) : super(
-          key: key,
-        );
+  const NotesApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Sizer(
-      builder: (context, orientation, deviceType) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            brightness: Brightness.dark,
-            fontFamily: 'Poppins',
-          ),
-          home: const NotesView(),
-        );
-      },
+    return BlocProvider(
+      create: (context) => NotesCubit(),
+      child: Sizer(
+        builder: (context, orientation, deviceType) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              brightness: Brightness.dark,
+              fontFamily: 'Poppins',
+            ),
+            home: const NotesView(),
+          );
+        },
+      ),
     );
   }
 }

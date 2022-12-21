@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes/views/widgets/note_bottom_sheet.dart';
 import 'package:sizer/sizer.dart';
 import 'package:notes/views/widgets/notes_view_body.dart';
@@ -10,9 +8,7 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: Scaffold(
+    return Scaffold(
       body: const NotesViewBody(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -34,7 +30,6 @@ class NotesView extends StatelessWidget {
           size: 24.sp,
         ),
       ),
-    ),
     );
   }
 }

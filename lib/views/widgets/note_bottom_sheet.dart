@@ -4,6 +4,7 @@ import 'package:notes/cubits/add_note_cubit/add_notes_cubit.dart';
 import 'package:notes/cubits/add_note_cubit/add_notes_states.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../cubits/notes_cubit/notes_cubit.dart';
 import 'add_note_form.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
@@ -26,6 +27,7 @@ class AddNoteBottomSheet extends StatelessWidget {
         child: BlocConsumer<AddNotesCubit, AddNotesState>(
           listener: (context, state) {
             if (state is SuccessAddNotesState) {
+              BlocProvider.of<NotesCubit>(context).fetchAllNotes();
               Navigator.pop(context);
             }
           },
