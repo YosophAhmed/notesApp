@@ -18,8 +18,10 @@ class AddNoteBottomSheet extends StatelessWidget {
     return BlocProvider(
       create: (context) => AddNotesCubit(),
       child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: 3.5.w,
+        padding: EdgeInsets.only(
+          left: 3.5.w,
+          right: 3.5.w,
+          bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
         child: BlocConsumer<AddNotesCubit, AddNotesState>(
           listener: (context, state) {
