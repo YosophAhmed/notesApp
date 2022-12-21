@@ -15,19 +15,22 @@ class AddNoteBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 3.5.w,
-      ),
-      child: BlocConsumer<AddNotesCubit, AddNotesState>(
-        listener: (context, state) {
-          if(state is SuccessAddNotesState) {
-            Navigator.pop(context);
-          }
-        },
-        builder: (context, state) {
-          return const AddNoteForm();
-        },
+    return BlocProvider(
+      create: (context) => AddNotesCubit(),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: 3.5.w,
+        ),
+        child: BlocConsumer<AddNotesCubit, AddNotesState>(
+          listener: (context, state) {
+            if(state is SuccessAddNotesState) {
+              Navigator.pop(context);
+            }
+          },
+          builder: (context, state) {
+            return const AddNoteForm();
+          },
+        ),
       ),
     );
   }
