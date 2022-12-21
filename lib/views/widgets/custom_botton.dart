@@ -7,6 +7,7 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onTap;
   final double width;
   final double height;
+  final bool isLoading;
 
   const CustomButton({
     Key? key,
@@ -14,6 +15,7 @@ class CustomButton extends StatelessWidget {
     required this.onTap,
     this.width = double.infinity,
     this.height = 3.0,
+    this.isLoading = false,
   }) : super(key: key);
 
   @override
@@ -28,7 +30,9 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.sp),
         ),
         alignment: Alignment.center,
-        child: Text(
+        child: isLoading ? const CircularProgressIndicator(
+          color: Colors.black,
+        ) : Text(
           label,
           style: TextStyle(
             fontSize: 14.sp,

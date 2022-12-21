@@ -23,12 +23,15 @@ class AddNoteBottomSheet extends StatelessWidget {
         ),
         child: BlocConsumer<AddNotesCubit, AddNotesState>(
           listener: (context, state) {
-            if(state is SuccessAddNotesState) {
+            if (state is SuccessAddNotesState) {
               Navigator.pop(context);
             }
           },
           builder: (context, state) {
-            return const AddNoteForm();
+            return AbsorbPointer(
+              absorbing: state is LoadingAddNotesState ? true : false,
+              child: const AddNoteForm(),
+            );
           },
         ),
       ),
