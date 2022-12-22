@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:notes/models/note_model.dart';
@@ -6,12 +7,12 @@ import '../../constants/colors.dart';
 import 'add_notes_states.dart';
 
 class AddNotesCubit extends Cubit<AddNotesState> {
-  AddNotesCubit()
-      : super(
-          InitialAddNotesState(),
-        );
+  AddNotesCubit() : super(InitialAddNotesState());
+
+  Color? color = Colors.white;
 
   addNote(NoteModel note) async {
+    note.color = color!.value;
     emit(
       LoadingAddNotesState(),
     );
@@ -29,5 +30,4 @@ class AddNotesCubit extends Cubit<AddNotesState> {
       );
     }
   }
-
 }
