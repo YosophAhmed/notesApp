@@ -6,6 +6,7 @@ import 'package:notes/models/note_model.dart';
 import 'package:sizer/sizer.dart';
 
 import 'colors_list_items.dart';
+import 'custom_back_button.dart';
 import 'custom_botton.dart';
 import 'custom_text_field.dart';
 
@@ -78,6 +79,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   }
                 },
               ),
+            ),
+            SizedBox(
+              height: 4.h,
+            ),
+            CustomBackButton(
+              onPressed: (){
+                Navigator.pop(context);
+              },
             ),
             SizedBox(
               height: 4.h,

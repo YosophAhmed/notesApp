@@ -7,6 +7,7 @@ import 'package:notes/views/widgets/custom_text_field.dart';
 import 'package:sizer/sizer.dart';
 
 
+import 'custom_back_button.dart';
 import 'edit_notes_color_list.dart';
 
 class EditNoteViewBody extends StatefulWidget {
@@ -30,48 +31,58 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
       padding: EdgeInsets.symmetric(
         horizontal: 5.w,
       ),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 5.h,
-          ),
-          CustomAppBar(
-            title: 'Edit Note',
-            icon: Icons.check,
-            onTap: () {
-              widget.note.title = title ?? widget.note.title;
-              widget.note.subTitle = subTitle ?? widget.note.subTitle;
-              widget.note.save();
-              BlocProvider.of<NotesCubit>(context).fetchAllNotes();
-              Navigator.pop(context);
-            },
-          ),
-          SizedBox(
-            height: 8.h,
-          ),
-          CustomTextField(
-            hintText: widget.note.title,
-            onChanged: (value) {
-              title = value;
-            },
-          ),
-          SizedBox(
-            height: 4.h,
-          ),
-          CustomTextField(
-            hintText: widget.note.subTitle,
-            maxLines: 5,
-            onChanged: (value) {
-              subTitle = value;
-            },
-          ),
-          SizedBox(
-            height: 4.h,
-          ),
-          EditNotesColorsList(
-            note: widget.note,
-          ),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 5.h,
+            ),
+            CustomAppBar(
+              title: 'Edit Note',
+              icon: Icons.check,
+              onTap: () {
+                widget.note.title = title ?? widget.note.title;
+                widget.note.subTitle = subTitle ?? widget.note.subTitle;
+                widget.note.save();
+                BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+                Navigator.pop(context);
+              },
+            ),
+            SizedBox(
+              height: 8.h,
+            ),
+            CustomTextField(
+              hintText: widget.note.title,
+              onChanged: (value) {
+                title = value;
+              },
+            ),
+            SizedBox(
+              height: 4.h,
+            ),
+            CustomTextField(
+              hintText: widget.note.subTitle,
+              maxLines: 5,
+              onChanged: (value) {
+                subTitle = value;
+              },
+            ),
+            SizedBox(
+              height: 4.h,
+            ),
+            EditNotesColorsList(
+              note: widget.note,
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            CustomBackButton(
+              onPressed: (){
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
