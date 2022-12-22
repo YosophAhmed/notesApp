@@ -54,17 +54,6 @@ class _ColorsListState extends State<ColorsList> {
   final bool isSelected = false;
   int currentIndex = 0;
 
-  List<Color> colors = const [
-    Color(0xffFEFCF3),
-    Color(0xffF5EBE0),
-    Color(0xffF0DBDB),
-    Color(0xffDBA39A),
-    Color(0xffADA2FF),
-    Color(0xffC0DEFF),
-    Color(0xffFFE5F1),
-    Color(0xffFFF8E1),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -73,16 +62,16 @@ class _ColorsListState extends State<ColorsList> {
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
             currentIndex = index;
-            BlocProvider.of<AddNotesCubit>(context).color = colors[index];
+            BlocProvider.of<AddNotesCubit>(context).color = kColors[index];
             setState(() {});
           },
           child: ColorItem(
-            color: colors[index],
+            color: kColors[index],
             isActive: currentIndex == index,
           ),
         ),
         scrollDirection: Axis.horizontal,
-        itemCount: colors.length,
+        itemCount: kColors.length,
         physics: const BouncingScrollPhysics(),
       ),
     );

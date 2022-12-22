@@ -6,6 +6,9 @@ import 'package:notes/views/widgets/custom_appbar.dart';
 import 'package:notes/views/widgets/custom_text_field.dart';
 import 'package:sizer/sizer.dart';
 
+
+import 'edit_notes_color_list.dart';
+
 class EditNoteViewBody extends StatefulWidget {
   final NoteModel note;
 
@@ -19,8 +22,7 @@ class EditNoteViewBody extends StatefulWidget {
 }
 
 class _EditNoteViewBodyState extends State<EditNoteViewBody> {
-
-  String? title , subTitle;
+  String? title, subTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +39,11 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             title: 'Edit Note',
             icon: Icons.check,
             onTap: () {
-                widget.note.title = title ?? widget.note.title;
-                widget.note.subTitle = subTitle ?? widget.note.subTitle;
-                widget.note.save();
-                BlocProvider.of<NotesCubit>(context).fetchAllNotes();
-                Navigator.pop(context);
+              widget.note.title = title ?? widget.note.title;
+              widget.note.subTitle = subTitle ?? widget.note.subTitle;
+              widget.note.save();
+              BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+              Navigator.pop(context);
             },
           ),
           SizedBox(
@@ -49,7 +51,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
           ),
           CustomTextField(
             hintText: widget.note.title,
-            onChanged: (value){
+            onChanged: (value) {
               title = value;
             },
           ),
@@ -63,8 +65,16 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               subTitle = value;
             },
           ),
+          SizedBox(
+            height: 4.h,
+          ),
+          EditNotesColorsList(
+            note: widget.note,
+          ),
         ],
       ),
     );
   }
 }
+
+
