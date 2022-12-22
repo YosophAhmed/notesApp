@@ -35,7 +35,7 @@ class CustomTextField extends StatelessWidget {
         focusedBorder: buildBorder(kPrimaryColor),
         hintText: hintText,
         hintStyle: const TextStyle(
-          color: kPrimaryColor,
+          color: Colors.white,
         ),
       ),
       cursorColor: kPrimaryColor,

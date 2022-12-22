@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes/constants/colors.dart';
 import 'package:sizer/sizer.dart';
 
 class CustomIcon extends StatelessWidget {
@@ -28,6 +29,7 @@ class CustomIcon extends StatelessWidget {
           child: Icon(
             icon,
             size: 28.sp,
+            color: kPrimaryColor,
           ),
         ),
       ),
